@@ -10,6 +10,18 @@ services:
       - ./ui/web:/app/ui/web
     networks:
       - huginn-net
+    depends_on:
+      - php-gateway
+  php-gateway:
+    build:
+      context: .
+      dockerfile: ops/php/Dockerfile
+    volumes:
+      - ./apps/php/public:/app/public
+    networks:
+      - huginn-net
+
+
 networks:
   huginn-net:
     driver: bridge
