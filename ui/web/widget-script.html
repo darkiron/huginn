@@ -1,0 +1,19 @@
+<script src="https://unpkg.com/vue@3"></script>
+<script>
+    const { createApp } = Vue;
+    createApp({
+        data() {
+            return {
+                latency: {{latency}},
+            memory: {{memory}}
+        };
+        },
+        template: `
+      <div>
+        <h2>📊 Metrics</h2>
+        <p>Latency: {{ latency }} ms</p>
+        <p>Memory: {{ memory }} MB</p>
+      </div>
+    `
+    }).mount("#metrics-widget");
+</script>

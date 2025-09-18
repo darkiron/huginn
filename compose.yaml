@@ -1,0 +1,15 @@
+services:
+  java-gateway:
+    build:
+      context: .
+      dockerfile: ops/java/Dockerfile
+    container_name: huginn-gateway
+    ports:
+      - "80:8080"
+    volumes:
+      - ./ui/web:/app/ui/web
+    networks:
+      - huginn-net
+networks:
+  huginn-net:
+    driver: bridge
