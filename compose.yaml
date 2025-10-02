@@ -27,6 +27,19 @@ services:
     networks:
       - huginn-net
 
+  python-llm:
+    build:
+      context: .
+      dockerfile: ops/python/Dockerfile
+    container_name: huginn-python-llm
+    working_dir: /app
+    networks: [huginn-net]
+    volumes:
+      - ./apps/python-llm:/app        # dev: tu vois ton code
+    stdin_open: true                   # -i
+    tty: true                          # -t (vrai TTY)
+    entrypoint: ["python", "-m", "llm_rnn.cli"]
+
 networks:
   huginn-net:
     driver: bridge
