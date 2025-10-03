@@ -27,18 +27,31 @@ services:
     networks:
       - huginn-net
 
-  python-llm:
+  llm:
     build:
       context: .
       dockerfile: ops/python/Dockerfile
-    container_name: huginn-python-llm
+      target: app
     working_dir: /app
-    networks: [huginn-net]
+    command: ["python", "services/llm/supervisor.py"]
     volumes:
-      - ./apps/python-llm:/app        # dev: tu vois ton code
-    stdin_open: true                   # -i
-    tty: true                          # -t (vrai TTY)
-    entrypoint: ["python", "-m", "llm_rnn.cli"]
+      - ./apps/python-llm:/app/apps/python-llm:rw
+      - ./services/llm:/app/services/llm:rw
+      - ./data:/data           # 👈 côté Windows ./data
+      - ./ckpts:/ckpts
+    environment:
+      - PYTHONPATH=/app/apps/python-llm
+      - CKPT_PATH=/ckpts/rnn.pt
+      - METRICS_PORT=9108
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "9108:9108"   # /metrics
+    networks:
+      - huginn-net
+
+volumes:
+  llm_ckpts:
+  llm_data:
 
 networks:
   huginn-net:

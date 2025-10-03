@@ -1,20 +1,9 @@
-[build-system]
-requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "huginn-llm"
 version = "0.1.0"
-description = "Huginn LLM sandbox (Markov + tiny char-RNN)"
+description = "Minimal char-level RNN LLM"
 requires-python = ">=3.11"
-dependencies = [
-  "torch>=2.2.2"
-]
-
-[project.scripts]
-markov = "llm_markov.cli:main"
-llm-train = "llm_rnn.train:main"
-llm-gen   = "llm_rnn.generate:main"
+dependencies = []
 
 [tool.setuptools.packages.find]
-include = ["llm_markov", "llm_markov.*", "llm_rnn", "llm_rnn.*"]
+where = ["."]
