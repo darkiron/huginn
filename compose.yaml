@@ -11,16 +11,21 @@ services:
     networks:
       - huginn-net
     depends_on:
-      - php-gateway
-  php-gateway:
+      - laravel-front
+
+  laravel-front:
     build:
       context: .
-      dockerfile: ops/php/Dockerfile
+      dockerfile: ops/laravel/Dockerfile
+    container_name: huginn-laravel-front
+    ports:
+      - "8081:8080"
     volumes:
-      - ./apps/php/public:/app/public
+      - ./apps/laravel-front:/var/www/html
+    working_dir: /var/www/html
+    command: sh -c "if [ -f artisan ]; then php artisan serve --host=0.0.0.0 --port=8080; else php -S 0.0.0.0:8080 -t public; fi"
     networks:
       - huginn-net
-
 
 networks:
   huginn-net:
