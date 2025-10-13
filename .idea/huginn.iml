@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/apps/chimaera-php/src" isTestSource="false" packagePrefix="App" />
       <sourceFolder url="file://$MODULE_DIR$/apps/chimaera-php/src" isTestSource="false" packagePrefix="Chimera" />
+      <sourceFolder url="file://$MODULE_DIR$/apps/laravel-front" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/apps/laravel-front/laravel-front" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
