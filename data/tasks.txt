@@ -1,0 +1,26 @@
+<|prompt|> Traduis en anglais : "Bonjour" <|endprompt|>
+<|answer|> Hello. <|endanswer|>
+
+<|prompt|> Traduis en anglais : "Merci beaucoup" <|endprompt|>
+<|answer|> Thank you very much. <|endanswer|>
+
+<|prompt|> Traduis en anglais : "Je t’aime" <|endprompt|>
+<|answer|> I love you. <|endanswer|>
+
+<|prompt|> Calcule : 2 + 2 <|endprompt|>
+<|answer|> 4 <|endanswer|>
+
+<|prompt|> Calcule : 5 × 3 <|endprompt|>
+<|answer|> 15 <|endanswer|>
+
+<|prompt|> Réécris cette phrase sans faute : "les enfant joue dehors" <|endprompt|>
+<|answer|> Les enfants jouent dehors. <|endanswer|>
+
+<|prompt|> Mets cette phrase au pluriel : "Le chat dort" <|endprompt|>
+<|answer|> Les chats dorment. <|endanswer|>
+
+<|prompt|> Mets cette phrase au passé : "Je mange une pomme" <|endprompt|>
+<|answer|> J’ai mangé une pomme. <|endanswer|>
+
+<|prompt|> Inverse le sens de cette phrase : "Il fait chaud" <|endprompt|>
+<|answer|> Il ne fait pas chaud. <|endanswer|>
