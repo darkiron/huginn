@@ -1,7 +1,7 @@
-import argparse, torch, os, sys
-sys.path.append(".")
+import argparse, torch, json
+from .model import CharRNN
 from .tokenizer import CharTokenizer
-from .model import CharRNN, sample
+from .tokenizer_bpe import BPETokenizer
 
 def main():
     p = argparse.ArgumentParser()
@@ -14,15 +14,31 @@ def main():
     args = p.parse_args()
 
     obj = torch.load(args.ckpt, map_location="cpu")
-    tok = CharTokenizer(obj["chars"])
     cfg = obj["config"]
-    model = CharRNN(vocab_size=len(tok.chars), emb=cfg["emb"], hid=cfg["hid"], layers=cfg["layers"], dropout=cfg["dropout"])
-    model.load_state_dict(obj["state_dict"])
-    model.eval()
+    kind = cfg.get("tokenizer_kind", "legacy")
+    # load tokenizer
+    if kind == "bpe":
+        payload = obj["tokenizer"]["data"]
+        tok = BPETokenizer.from_json(payload)
+        vocab_size = tok.size()
+        def encode(s): return tok.encode(s)
+        def decode(ix): return tok.decode(ix)
+    elif kind == "byte":
+        tok = CharTokenizer(None)
+        vocab_size = 256
+        encode = tok.encode; decode = tok.decode
+    else:
+        tok = CharTokenizer()
+        vocab_size = len(tok.chars)
+        encode = tok.encode; decode = tok.decode
 
-    seed_idx = tok.encode(args.seed)
+    model = CharRNN(vocab_size=vocab_size, emb=cfg["emb"], hid=cfg["hid"], layers=cfg["layers"], dropout=cfg["dropout"])
+    model.load_state_dict(obj["state_dict"]); model.eval()
+
+    from .model import sample
+    seed_idx = encode(args.seed)
     out_idx = sample(model, seed_idx, steps=args.chars, temperature=args.temp, top_k=args.top_k, top_p=args.top_p)
-    print(tok.decode(out_idx))
+    print(decode(out_idx))
 
 if __name__ == "__main__":
     main()
