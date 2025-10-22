@@ -137,13 +137,11 @@ Réponse 5 :  Je laisse sans réponse une question dont l’absurdité m’a lai
 
 •  Sur Taiwan, Monsieur Mélenchon sait évidemment que l’île n’a jamais été contrôlée par la République populaire de Chine, qu’elle a été une province chinoise 10 ans seulement à la fin du XIXe siècle, soit bien moins que l’Algérie française, et que la France puis l’Assemblée générale de l’ONU (dans la résolution 2758) ont bien veillé à ne pas spécifiquement reconnaitre la souveraineté chinoise sur l’île en reconnaissant la Chine communiste, compromis établi pour laisser en suspens l’avenir de l’État issu de la « République de Chine » établi dans l’ancienne Formose par Chiang Kai-chek après sa défaite sur le continent. La position exprimée en aout 2022 – affirmant que Taïwan est une partie intégrante du territoire de la RPC – indique-t-elle que Monsieur Mélenchon souhaite faire évoluer la position diplomatique de la France sur Taïwan, pour mettre fin à l’ambiguïté maintenue par les chefs de l’État français depuis le Général de Gaulle ?
 
-
 Réponse 6 : Encore un effet de votre ignorance et de vos obsessions. Aucun document ne pouvait faire référence à Taïwan ! La question ne se posait pas concernant un territoire dont la France puis l’ONU ont reconnu l’existence telle qu’il se définissait lui-même. Ces frontières de la Chine sont celles reconnues par le général de Gaulle depuis 1964 et par l’ONU depuis l’inclusion de la RPC au conseil de sécurité et l’expulsion des « représentants » Kouo-Min-Tang de Taïwan. Elles incluent l’île qui était appelée à l’époque « Formose ». « L’ambiguïté stratégique » n’est pas un concept de la diplomatie française sur ce sujet. C’est une position de vos amis dans l’administration américaine. Vous ne devriez pas recopier ses arguments sans les vérifier sous l’angle français. Pour mieux comprendre ma position, je vous invite à écouter mon discours sur le sujet à la tribune de l’Assemblée nationale. Je vous le résume : conformément à la position constante de la France et de l’ONU, il n’y a qu’une seule Chine dont la capitale est Pékin. Et la solution des questions sur ce sujet ne peut venir que du dialogue entre chinois, sans ingérence étrangère. Je suis donc hostile à la guerre que préparent les États-Unis d’Amérique dans la zone Asie pacifique. Je l’ai exposé au cours de nombreux discours récents et pour la première fois publiquement sur l’île de la Réunion dans un meeting il y a deux ans. Hélas, les provocations de l’équipe Trump se multiplient sur place. À leur suite, de nombreux relais d’opinions des USA s’agitent en effet pour trouver des prétextes à disputes et préparer les esprits par la propagande la guerre. Apprenez donc que le moment venu, en cas de conflit, je m’opposerai à toute agression contre la RPC et le peuple chinois.
 
 •  L’essayiste Maxime Vivas décrit Monsieur Mélenchon comme un « ami personnel de longue date ». Cette description est-elle correcte et partagée ? Comment se sont-ils connus et entretiennent-ils des contacts réguliers ?
 
 Réponse 7 : Mes relations personnelles ne sont pas à la disposition de vos inquisitions. Pour les fables empoisonnées, voyez vos collègues plus directement spécialisés dans cet exercice. Par exemple le journal « Libération » qui a déjà pris en charge de longs récits diffamant contre les insoumis. Cet ancien journal maoïste est aujourd’hui dirigé par un autocrate discuté par sa propre rédaction, monsieur Dov Alfon. Comme il s’agit d’un ancien agent du service de renseignement de l’armée israélienne et qu’il assimile cette activité à celle de journaliste, cela vous unira par une conception commune de votre métier. Elle vous facilitera le contact.
-
 
 
 •  Monsieur Mélenchon confie dans une récente interview une conversation avec un dirigeant chinois. Qui est-ce ? Quand a-t-elle eu lieu ? Où cela ? S’agit-il de Zhang Guangping, directeur pour l’Europe de l’Ouest au département international du Parti, en marge de sa visite du 6 mars 2025 à l’Assemblée nationale ?
@@ -158,3 +156,8 @@ Cordialement, Jérémy André
 
 
 Réponse 9 : En français, « cordialement » est une formule affective. Je vous serai reconnaissant de vous en tenir à un mode moins familier.
+<|prompt|> Quelle est la capitale de la France ? <|endprompt|>
+<|answer|> Paris. <|endanswer|>
+
+<|prompt|> Traduis en anglais : "Bonjour" <|endprompt|>
+<|answer|> Hello <|endanswer|>

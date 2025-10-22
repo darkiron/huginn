@@ -1,0 +1,29 @@
+<|prompt|> Quelle est la capitale de la France ? <|endprompt|>
+<|answer|> Paris. <|endanswer|>
+
+<|prompt|> Quelle est la capitale de l’Italie ? <|endprompt|>
+<|answer|> Rome. <|endanswer|>
+
+<|prompt|> Quelle est la capitale de l’Espagne ? <|endprompt|>
+<|answer|> Madrid. <|endanswer|>
+
+<|prompt|> Quelle est la capitale de l’Allemagne ? <|endprompt|>
+<|answer|> Berlin. <|endanswer|>
+
+<|prompt|> Quelle est la capitale du Japon ? <|endprompt|>
+<|answer|> Tokyo. <|endanswer|>
+
+<|prompt|> Quelle est la capitale du Canada ? <|endprompt|>
+<|answer|> Ottawa. <|endanswer|>
+
+<|prompt|> Donne une définition simple de l’eau. <|endprompt|>
+<|answer|> L’eau est un liquide transparent, incolore et vital pour la vie. <|endanswer|>
+
+<|prompt|> Qui a écrit Les Misérables ? <|endprompt|>
+<|answer|> Victor Hugo. <|endanswer|>
+
+<|prompt|> En quelle année a commencé la Révolution française ? <|endprompt|>
+<|answer|> En 1789. <|endanswer|>
+
+<|prompt|> Quel est le plus grand océan sur Terre ? <|endprompt|>
+<|answer|> L’océan Pacifique. <|endanswer|>
