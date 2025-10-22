@@ -1,9 +1,9 @@
-# Huginn Wiki
+# Huginn Wiki 📚
 
-Welcome to the Huginn documentation. Start here for an overview and links to detailed pages.
+Bienvenue ! Cette documentation vous guide à travers l’architecture, l’installation et l’exploitation de Huginn. ✨
 
-Pages
-- [[Architecture]] — High-level design and data flow
+## Pages 🧭
+- [[Architecture]] — High‑level design and data flow
 - [[Setup]] — Local development and Docker quickstart
 - [[Environment]] — Environment variables and secrets handling
 - [[Backend-Symfony]] — Symfony backend notes
