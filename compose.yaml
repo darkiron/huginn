@@ -26,6 +26,29 @@ services:
     command: sh -c "if [ -f artisan ]; then php artisan serve --host=0.0.0.0 --port=8080; else php -S 0.0.0.0:8080 -t public; fi"
     networks:
       - huginn-net
+    depends_on:
+          - symfony-back
+
+  symfony-back:
+    build:
+      context: .
+      dockerfile: ops/symfony/Dockerfile
+    container_name: huginn-symfony-back
+    ports:
+      - "8082:8080"
+    environment:
+      - APP_ENV=dev
+      - APP_DEBUG=1
+      - LLM_URL=http://llm:8008/generate/stream
+      - LLM_METRICS_URL=http://llm:9108/metrics
+    volumes:
+      - ./apps/symfony-back:/app
+    working_dir: /app
+    #command: symfony serve --no-tls --port=8080 --dir=public
+    networks:
+      - huginn-net
+    depends_on:
+      - llm
 
   llm:
     build:
