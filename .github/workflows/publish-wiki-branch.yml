@@ -1,0 +1,45 @@
+name: Publish Wiki to Special Branch
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'docs/wiki/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-wiki-branch:
+    name: Sync docs/wiki to wiki branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Prepare wiki export
+        run: |
+          rm -rf export
+          mkdir -p export
+          cp -R docs/wiki/. export/
+
+      - name: Push to wiki branch (orphan)
+        env:
+          REPO: ${{ github.repository }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd export
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Create or reset to orphan main tree for clean history in wiki branch
+          git checkout --orphan wiki
+          git add .
+          git commit -m "chore(wiki): publish docs/wiki to wiki branch (CI)"
+          git branch -M wiki
+          git remote add origin https://x-access-token:${TOKEN}@github.com/${REPO}.git
+          # Force push to keep branch content in sync with docs/wiki
+          git push -f origin wiki
