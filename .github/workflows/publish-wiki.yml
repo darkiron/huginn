@@ -2,7 +2,7 @@ name: Publish Wiki
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, docs/wiki ]
     paths:
       - 'docs/wiki/**'
   workflow_dispatch:
