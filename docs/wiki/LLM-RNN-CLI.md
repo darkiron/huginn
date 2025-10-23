@@ -1,4 +1,4 @@
-# LLM RNN CLI — Text Generation via Docker Compose ✨
+# LLM RNN CLI — Génération de texte via Docker Compose ✨
 
 Cette page explique comment générer du texte avec le modèle RNN depuis le conteneur llm, via la CLI llm_rnn.generate. 🧠🐳
 

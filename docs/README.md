@@ -1,20 +1,20 @@
 # Documentation 📚
 
-This folder contains the source of truth for project documentation. It is mirrored into a GitHub Wiki‑friendly format under docs/wiki/ for easy publishing. ✨
+Ce dossier contient la source de vérité de la documentation du projet. Son contenu est reflété sous docs/wiki/ dans un format compatible GitHub Wiki pour une publication facile. ✨
 
-## Contents 🧭
-- architecture.md — High‑level overview of components and data flow
-- setup.md — Local development setup and Docker Compose quickstart
-- env.md — Environment variables and configuration
+## Contenu 🧭
+- architecture.md — Vue d’ensemble des composants et des flux de données
+- setup.md — Installation locale et démarrage rapide Docker Compose
+- env.md — Variables d’environnement et configuration
 - services/
-  - symfony-back.md — Notes for the Symfony backend
-  - laravel-front.md — Notes for the Laravel frontend
-  - python-llm.md — Notes for the Python LLM service
+  - symfony-back.md — Notes pour le backend Symfony
+  - laravel-front.md — Notes pour le frontend Laravel
+  - python-llm.md — Notes pour le service LLM Python
 - ops/
-  - deployment.md — Deployment considerations and environments
-- troubleshooting.md — Common issues and fixes
+  - deployment.md — Considérations de déploiement et environnements
+- troubleshooting.md — Problèmes courants et correctifs
 
-Tip : See docs/wiki/Home.md for the wiki version. 🔗
+Astuce : voir docs/wiki/Home.md pour la version « wiki ». 🔗
 
 
 ## Style typographique (FR) ✍️
@@ -22,4 +22,4 @@ Tip : See docs/wiki/Home.md for the wiki version. 🔗
 - Préférer les guillemets français « … » et l’apostrophe typographique ’.
 - Garder des titres courts, ajouter des emojis avec mesure 😄.
 
-Voir aussi : docs/wiki/Documentation-Generique.md.
+Voir aussi : docs/wiki/Documentation-Generique.

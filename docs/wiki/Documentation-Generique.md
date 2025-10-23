@@ -21,8 +21,8 @@ Astuce : dans Markdown, collez une espace fine insécable (U+202F) avant « :�
   - Métriques Prometheus : `http://localhost:9108/metrics`
 
 Voir aussi :
-- [Architecture](Architecture.md) — Vue consolidée et diagramme Mermaid 🗺️
-- [LLM RNN CLI](LLM-RNN-CLI.md) — Génération via Docker Compose 🐳
+- [Architecture](Architecture) — Vue consolidée et diagramme Mermaid 🗺️
+- [LLM RNN CLI](LLM-RNN-CLI) — Génération via Docker Compose 🐳
 
 ## Développement local 🛠️
 - Démarrage rapide : `docker compose up -d`
@@ -31,8 +31,8 @@ Voir aussi :
 - LLM (metrics) : http://localhost:9108/metrics
 
 Consultez aussi :
-- [Setup](Setup.md) — Installation et commandes utiles
-- [Environment](Environment.md) — Variables d’environnement et secrets
+- [Setup](Setup) — Installation et commandes utiles
+- [Environment](Environment) — Variables d’environnement et secrets
 
 ## Conventions de commit 🧾
 - Utiliser Conventional Commits : `feat:`, `fix:`, `docs:`, etc.
