@@ -10,6 +10,7 @@ Bienvenue ! Cette documentation vous guide à travers l’architecture, l’ins
 - [Backend-Symfony](Backend-Symfony) — Notes backend Symfony
 - [Frontend-Laravel](Frontend-Laravel) — Notes frontend Laravel
 - [LLM-Service-Python](LLM-Service-Python) — Notes sur le service Python LLM
+- [Tokenization](Tokenization) — Modes byte/legacy/BPE et bonnes pratiques 🔤
 - [LLM RNN CLI](LLM-RNN-CLI) — Générer du texte via docker compose exec et llm_rnn.generate
 - [Ops-Deployment](Ops-Deployment) — Considérations de déploiement
 - [Troubleshooting](Troubleshooting) — Problèmes courants et correctifs
