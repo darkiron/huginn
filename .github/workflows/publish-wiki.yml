@@ -1,0 +1,40 @@
+name: Publish Wiki
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'docs/wiki/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-wiki:
+    name: Sync docs/wiki to GitHub Wiki
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Prepare wiki content
+        run: |
+          rm -rf wiki
+          mkdir -p wiki
+          cp -R docs/wiki/. wiki/
+
+      - name: Publish to GitHub Wiki
+        run: |
+          cd wiki
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore(wiki): publish from docs/wiki (CI)" || echo "Nothing to commit"
+          git branch -M master
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.wiki.git
+          # Force push to ensure wiki mirrors docs/wiki exactly
+          git push -f origin master

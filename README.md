@@ -12,6 +12,7 @@ This repository is structured as a monorepo and includes a Docker Compose setup 
 ## Quick links 🔗
 - 📚 Documentation index: docs/README.md
 - 🗂️ In-repo Wiki index: docs/wiki/Home.md
+- 🔗 GitHub Wiki (published): https://github.com/darkiron/huginn/wiki
 
 ## Getting started (Docker) 🐳
 1. Prérequis : Docker Desktop 4.x ou plus récent.
