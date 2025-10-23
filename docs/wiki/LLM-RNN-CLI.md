@@ -1,82 +1,110 @@
-# LLM RNN CLI — Text Generation via Docker Compose
+# LLM RNN CLI — Text Generation via Docker Compose ✨
 
-This page documents how to run the character-level RNN generator from inside the llm service container, using the llm_rnn.generate CLI.
+Cette page explique comment générer du texte avec le modèle RNN depuis le conteneur llm, via la CLI llm_rnn.generate. 🧠🐳
 
-The examples below match this command template:
+---
+
+Sommaire
+- TL;DR rapide ⚡
+- Commandes complètes (PowerShell/Bash) 🖥️
+- Ce que fait la commande 🔍
+- Options de la CLI ⚙️
+- Exemples utiles 🧪
+- Exécuter hors Docker (avancé) 🚀
+- Fichiers et volumes 📁
+- Dépannage 🛟
+- API et métriques 🌐📈
+- Annexes 📚
+
+---
+
+TL;DR ⚡
 
 PowerShell (Windows)
 
+```powershell
 PS C:\Users\vincent\huginn> docker compose exec llm /opt/venv/bin/python -m llm_rnn.generate `
   --ckpt /ckpts/rnn.pt `
   --seed "Le soleil se lève sur les collines et" `
   --chars 200 --temp 0.8 --top-p 0.9
+```
 
 Bash (macOS/Linux)
 
+```bash
 docker compose exec llm /opt/venv/bin/python -m llm_rnn.generate \
   --ckpt /ckpts/rnn.pt \
   --seed "Le soleil se lève sur les collines et" \
   --chars 200 --temp 0.8 --top-p 0.9
+```
 
-What this does
-- docker compose exec llm … executes the command inside the llm container defined in compose.yaml.
-- /opt/venv/bin/python -m llm_rnn.generate runs the packaged CLI entry point.
-- --ckpt /ckpts/rnn.pt points to the pretrained checkpoint mounted from ./ckpts on your host.
+Ce que ça fait 🔍
+- docker compose exec llm … exécute la commande dans le conteneur llm (voir compose.yaml).
+- /opt/venv/bin/python -m llm_rnn.generate lance l’entrée CLI du package.
+- --ckpt /ckpts/rnn.pt pointe vers le checkpoint monté depuis ./ckpts de l’hôte.
 
-Options reference
-The generator CLI is implemented in apps/python-llm/llm_rnn/generate.py and supports:
-- --ckpt PATH: Path to the model checkpoint (.pt). Default: /ckpts/rnn.pt
-- --seed TEXT: Optional seed text to prime the model. Default: empty
-- --chars INT: Number of output characters to generate. Default: 200
-- --temp FLOAT: Sampling temperature (higher = more random). Default: 0.9
-- --top-k INT: Top‑k sampling cutoff (optional). Default: None
-- --top-p FLOAT: Top‑p (nucleus) sampling threshold (optional). Default: None
+Options de la CLI ⚙️
+Implémentation : apps/python-llm/llm_rnn/generate.py
+- --ckpt PATH : chemin du checkpoint (.pt). Défaut : /ckpts/rnn.pt
+- --seed TEXT : texte d’amorçage (optionnel). Défaut : vide
+- --chars INT : nombre de caractères générés. Défaut : 200
+- --temp FLOAT : température (plus haut = plus aléatoire). Défaut : 0.9
+- --top-k INT : coupe top‑k (optionnel). Défaut : None
+- --top-p FLOAT : nucleus/top‑p (optionnel). Défaut : None
 
-Additional examples
-1) Quick sample with defaults (uses /ckpts/rnn.pt, 200 chars, temp=0.9):
+Exemples utiles 🧪
+1) Échantillon rapide (défauts : /ckpts/rnn.pt, 200 chars, temp=0.9)
 
+```powershell
 PS> docker compose exec llm /opt/venv/bin/python -m llm_rnn.generate --seed "Hello world"
+```
 
-2) Deterministic/safer output (lower temp, no nucleus):
+2) Sortie plus déterministe (temp plus basse, sans nucleus)
 
-PS> docker compose exec llm /opt/venn/bin/python -m llm_rnn.generate `
+```powershell
+PS> docker compose exec llm /opt/venv/bin/python -m llm_rnn.generate `
   --seed "Once upon a time" `
   --chars 400 `
   --temp 0.6
+```
 
-3) Use top‑k instead of top‑p:
+3) Utiliser top‑k au lieu de top‑p
 
-$ docker compose exec llm /opt/venv/bin/python -m llm_rnn.generate \
+```bash
+docker compose exec llm /opt/venv/bin/python -m llm_rnn.generate \
   --seed "Il était une fois" \
   --chars 300 --temp 0.8 --top-k 50
+```
 
-Running outside Docker (advanced)
-If you activated the environment inside the container image layout (PYTHONPATH=/app/apps/python-llm), you can run from the repo on a machine with Python and PyTorch installed:
+Exécuter hors Docker (avancé) 🚀
+Si votre environnement local a Python + PyTorch et que le package est accessible (PYTHONPATH=/app/apps/python-llm dans l’image), vous pouvez lancer :
 
+```bash
 python -m llm_rnn.generate --ckpt ./ckpts/rnn.pt --seed "Example" --chars 200
+```
 
-Make sure the llm_rnn package (apps/python-llm) is on PYTHONPATH, or install it as a package if you have a setup for that.
+Assurez‑vous que llm_rnn (apps/python-llm) est sur le PYTHONPATH, ou installez‑le en package si vous avez une configuration prévue.
 
-Files and volumes
-- Checkpoint: ./ckpts/rnn.pt on host is mounted to /ckpts/rnn.pt in the container (compose.yaml mounts ./ckpts:/ckpts).
-- Code: ./apps/python-llm is mounted to /app/apps/python-llm; compose sets PYTHONPATH=/app/apps/python-llm so python -m llm_rnn.generate works.
+Fichiers et volumes 📁
+- Checkpoint : ./ckpts/rnn.pt (hôte) monté en /ckpts/rnn.pt (conteneur). compose.yaml : ./ckpts:/ckpts
+- Code : ./apps/python-llm monté en /app/apps/python-llm, avec PYTHONPATH=/app/apps/python-llm pour python -m llm_rnn.generate
 
-Troubleshooting
+Dépannage 🛟
 - ModuleNotFoundError: No module named 'llm_rnn'
-  - Ensure you’re running inside the container (docker compose exec llm …) where PYTHONPATH is set.
-  - If running locally, set PYTHONPATH to apps/python-llm or install the package.
+  - Exécutez dans le conteneur (docker compose exec llm …) où PYTHONPATH est défini.
+  - En local, définissez PYTHONPATH=apps/python-llm ou installez le package.
 - FileNotFoundError: /ckpts/rnn.pt
-  - Verify that ./ckpts/rnn.pt exists on your host and the volume ./ckpts:/ckpts is present in compose.yaml.
-  - You can change --ckpt to another path in the container (e.g., /app/apps/python-llm/rnn.pt if you placed it there).
-- Garbled output or strange characters
-  - Try lowering --temp to 0.6–0.8.
-  - If your checkpoint was trained with a specific tokenizer (byte/BPE), be sure you’re using the matching checkpoint (the loader auto‑detects kind via the stored config).
+  - Vérifiez l’existence de ./ckpts/rnn.pt et le volume ./ckpts:/ckpts dans compose.yaml.
+  - Changez --ckpt si nécessaire (ex. : un chemin dans /app/…).
+- Sortie « bizarre » ou caractères inattendus
+  - Baissez --temp vers 0.6–0.8.
+  - Assurez la compatibilité tokenizer/checkpoint (byte/BPE). Le loader détecte le type via la config sauvegardée.
 
-Notes about APIs and metrics
-- HTTP API: The Symfony backend expects an endpoint like http://llm:8008/generate/stream (see apps/symfony-back/src/Infrastructure/LLM/PythonLLMClient.php). If you need an HTTP generator, implement and run it inside the llm service; the CLI above already works for direct generation.
-- Metrics: The llm container exposes Prometheus metrics at http://localhost:9108/metrics (inside the container: /metrics on port 9108), driven by services/llm/metrics_server.py.
+API et métriques 🌐📈
+- HTTP API : le backend Symfony s’attend à http://llm:8008/generate/stream (voir apps/symfony-back/src/Infrastructure/LLM/PythonLLMClient.php). La CLI ci‑dessus est pratique pour des tests directs.
+- Métriques : http://localhost:9108/metrics exposé par services/llm/metrics_server.py (dans le conteneur : /metrics sur 9108).
 
-Appendix: Where the CLI lives
-- Entry point: apps/python-llm/llm_rnn/generate.py
-- Model: apps/python-llm/llm_rnn/model.py (CharRNN and sampling)
-- Tokenizers: apps/python-llm/llm_rnn/tokenizer.py and tokenizer_bpe.py
+Annexes 📚
+- Entrée CLI : apps/python-llm/llm_rnn/generate.py
+- Modèle : apps/python-llm/llm_rnn/model.py (CharRNN + sampling)
+- Tokenizers : apps/python-llm/llm_rnn/tokenizer.py et tokenizer_bpe.py
