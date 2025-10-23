@@ -35,6 +35,6 @@ jobs:
           git add .
           git commit -m "chore(wiki): publish from docs/wiki (CI)" || echo "Nothing to commit"
           git branch -M master
-          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.wiki.git
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/darkiron/huginn.wiki.git
           # Force push to ensure wiki mirrors docs/wiki exactly
           git push -f origin master
