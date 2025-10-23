@@ -15,3 +15,11 @@ This folder contains the source of truth for project documentation. It is mirror
 - troubleshooting.md — Common issues and fixes
 
 Tip : See docs/wiki/Home.md for the wiki version. 🔗
+
+
+## Style typographique (FR) ✍️
+- Utiliser des espaces insécables fines avant : « : », « ; », « ! », « ? ».
+- Préférer les guillemets français « … » et l’apostrophe typographique ’.
+- Garder des titres courts, ajouter des emojis avec mesure 😄.
+
+Voir aussi : docs/wiki/Documentation-Generique.md.
