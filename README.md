@@ -11,7 +11,7 @@ This repository is structured as a monorepo and includes a Docker Compose setup 
 
 ## Quick links 🔗
 - 📚 Documentation index: docs/README.md
-- 🗂️ GitHub Wiki source (to copy into your repo wiki): docs/wiki/Home.md
+- 🗂️ In-repo Wiki index: docs/wiki/Home.md
 
 ## Getting started (Docker) 🐳
 1. Prérequis : Docker Desktop 4.x ou plus récent.
